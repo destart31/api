@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import br.com.projeto.api.modelo.Cliente;
@@ -22,5 +23,10 @@ public class Controle {
     @GetMapping("/")
     public Iterable<Cliente> selecionar() {
         return acao.findAll();
+    }
+
+    @PutMapping("/")
+    public Cliente editar(@RequestBody Cliente c) {
+        return acao.save(c);
     }
 }
