@@ -2,6 +2,7 @@ package br.com.projeto.api.controle;
 
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,9 @@ import br.com.projeto.api.modelo.Cliente;
 import br.com.projeto.api.repositorio.Repositorio;
 
 @RestController
+// resolve o problema do CORS onde o backend e o frontend estão rodando em
+// portas diferentes.
+@CrossOrigin(origins = "*")
 public class Controle {
     @Autowired
     private Repositorio acao;
